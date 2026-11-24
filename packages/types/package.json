@@ -16,7 +16,7 @@
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
-    "@screenvault/shared": "workspace:*",
+    "@screenvault/shared": "*",
     "zod": "^3.25.76"
   },
   "devDependencies": {

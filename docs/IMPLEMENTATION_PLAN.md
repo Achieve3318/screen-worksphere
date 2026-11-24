@@ -2,11 +2,11 @@
 
 WorkSphere is an enrolled, visible screenshot and time-tracking platform. Monitoring never starts before a person signs in and a device is enrolled, and the desktop app always shows whether capture is running. This is not stealth software.
 
-Docker is intentionally excluded. Local setup uses Node.js, pnpm, and MongoDB (local `mongod` or Atlas). Integration tests use `mongodb-memory-server`.
+Docker is intentionally excluded. Local setup uses Node.js, npm, and MongoDB (local `mongod` or Atlas). Integration tests use `mongodb-memory-server`.
 
 ## Decisions
 
-- Monorepo: pnpm workspaces, strict TypeScript, ESLint, Prettier, Vitest.
+- Monorepo: npm workspaces, strict TypeScript, ESLint, Prettier, Vitest.
 - Branding lives in `packages/shared/src/brand.ts` plus CSS tokens. The product name is not scattered through feature logic.
 - API: Fastify, Zod, Mongoose, Argon2id, rotating refresh tokens, server-side RBAC.
 - Database: MongoDB with UUID string document ids. Production uses `DATABASE_URL` (`mongodb://` or `mongodb+srv://`).

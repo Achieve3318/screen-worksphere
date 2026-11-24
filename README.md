@@ -8,7 +8,7 @@ WorkSphere is a screenshot and time-tracking platform for organizations that hav
 
 The product name lives in `packages/shared/src/brand.ts`. Change that module, the CSS tokens in `packages/ui/src/tokens.css`, and the user-facing copy when you rename it.
 
-This repository does not use Docker. Local setup is Node.js, pnpm, and MongoDB.
+This repository does not use Docker. Local setup is Node.js, npm, and MongoDB.
 
 ## Privacy rules built into the product
 
@@ -34,8 +34,7 @@ packages/config  shared TypeScript defaults
 
 ## Prerequisites
 
-- Node.js 22 or newer
-- pnpm 9
+- Node.js 22 or newer (includes npm)
 - MongoDB 7+ (local `mongod` or Atlas)
 
 ### Install MongoDB without containers
@@ -49,7 +48,7 @@ The default URI is `mongodb://127.0.0.1:27017/screenvault`. The API creates coll
 ## Setup
 
 ```bash
-pnpm install
+npm install
 copy .env.example .env
 ```
 
@@ -69,7 +68,7 @@ copy apps\admin\.env.example apps\admin\.env.local
 Seed demo data:
 
 ```bash
-pnpm db:seed
+npm run db:seed
 ```
 
 Demo accounts all use `SEED_PASSWORD` (the example value is `ChangeMe-Please-1`):
@@ -84,7 +83,7 @@ Change that password before any shared deployment.
 ## Run
 
 ```bash
-pnpm dev
+npm run dev
 ```
 
 - API: http://127.0.0.1:4000
@@ -94,18 +93,18 @@ pnpm dev
 You can also run one app:
 
 ```bash
-pnpm dev:api
-pnpm dev:admin
-pnpm dev:desktop
+npm run dev:api
+npm run dev:admin
+npm run dev:desktop
 ```
 
 ## Checks
 
 ```bash
-pnpm lint
-pnpm typecheck
-pnpm test
-pnpm build
+npm run lint
+npm run typecheck
+npm run test
+npm run build
 ```
 
 The admin scripts use webpack. Next.js 16’s Turbopack builder hits a native crash on some Windows installs, and the console only needs the branding module from the shared package in the browser.

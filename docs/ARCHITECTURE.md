@@ -1,6 +1,6 @@
 # Architecture
 
-WorkSphere is a TypeScript pnpm workspace.
+WorkSphere is a TypeScript npm workspace.
 
 ```text
 Desktop (Electron main process)

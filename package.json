@@ -3,28 +3,25 @@
   "private": true,
   "type": "module",
   "version": "0.1.0",
-  "packageManager": "pnpm@9.15.4",
-  "pnpm": {
-    "supportedArchitectures": {
-      "os": ["current", "win32"],
-      "cpu": ["current", "x64"]
-    }
-  },
   "engines": {
     "node": ">=22"
   },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "scripts": {
-    "build:packages": "pnpm --filter @screenvault/shared run build && pnpm --filter @screenvault/types run build && pnpm --filter @screenvault/ui run build",
-    "build": "pnpm run build:packages && pnpm --filter @screenvault/api run build && pnpm --filter @screenvault/admin run build && pnpm --filter @screenvault/desktop run build",
-    "dev": "pnpm run build:packages && concurrently -n api,admin,desktop -c cyan,green,magenta \"pnpm --filter @screenvault/api dev\" \"pnpm --filter @screenvault/admin dev\" \"pnpm --filter @screenvault/desktop dev\"",
-    "dev:api": "pnpm run build:packages && pnpm --filter @screenvault/api dev",
-    "dev:admin": "pnpm --filter @screenvault/admin dev",
-    "dev:desktop": "pnpm run build:packages && pnpm --filter @screenvault/desktop dev",
+    "build:packages": "npm run build -w @screenvault/shared && npm run build -w @screenvault/types && npm run build -w @screenvault/ui",
+    "build": "npm run build:packages && npm run build -w @screenvault/api && npm run build -w @screenvault/admin && npm run build -w @screenvault/desktop",
+    "dev": "npm run build:packages && concurrently -n api,admin,desktop -c cyan,green,magenta \"npm run dev -w @screenvault/api\" \"npm run dev -w @screenvault/admin\" \"npm run dev -w @screenvault/desktop\"",
+    "dev:api": "npm run build:packages && npm run dev -w @screenvault/api",
+    "dev:admin": "npm run dev -w @screenvault/admin",
+    "dev:desktop": "npm run build:packages && npm run dev -w @screenvault/desktop",
     "lint": "eslint .",
     "format:check": "prettier --check .",
-    "typecheck": "pnpm run build:packages && pnpm --filter @screenvault/shared exec tsc -p tsconfig.json --noEmit && pnpm --filter @screenvault/types exec tsc -p tsconfig.json --noEmit && pnpm --filter @screenvault/ui exec tsc -p tsconfig.json --noEmit && pnpm --filter @screenvault/api exec tsc -p tsconfig.json --noEmit && pnpm --filter @screenvault/admin exec tsc -p tsconfig.json --noEmit && pnpm --filter @screenvault/desktop exec tsc -p tsconfig.json --noEmit",
+    "typecheck": "npm run build:packages && npm exec -w @screenvault/shared -- tsc -p tsconfig.json --noEmit && npm exec -w @screenvault/types -- tsc -p tsconfig.json --noEmit && npm exec -w @screenvault/ui -- tsc -p tsconfig.json --noEmit && npm exec -w @screenvault/api -- tsc -p tsconfig.json --noEmit && npm exec -w @screenvault/admin -- tsc -p tsconfig.json --noEmit && npm exec -w @screenvault/desktop -- tsc -p tsconfig.json --noEmit",
     "test": "vitest run",
-    "db:seed": "pnpm run build:packages && pnpm --filter @screenvault/api db:seed"
+    "db:seed": "npm run build:packages && npm run db:seed -w @screenvault/api"
   },
   "devDependencies": {
     "@types/node": "^22.19.0",
