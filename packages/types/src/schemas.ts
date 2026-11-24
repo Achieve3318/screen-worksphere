@@ -12,7 +12,7 @@ import {
   networksForAsset,
   paymentAssets,
   paymentNetworks,
-} from '@screenvault/shared'
+} from '../../shared/dist/index.js'
 import { z } from 'zod'
 
 export const orgRoleSchema = z.enum(orgRoles)

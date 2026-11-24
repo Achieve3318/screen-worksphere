@@ -20,7 +20,7 @@
     "react": "^19.0.0"
   },
   "dependencies": {
-    "@screenvault/shared": "*"
+    "@screenvault/shared": "file:../shared"
   },
   "devDependencies": {
     "@types/react": "^19.2.2",

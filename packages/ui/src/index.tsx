@@ -1,4 +1,4 @@
-import { brand } from '@screenvault/shared/brand'
+import { brand } from '../../shared/dist/brand.js'
 import type { ReactNode } from 'react'
 
 export function Mark({ size = 28 }: { size?: number }) {

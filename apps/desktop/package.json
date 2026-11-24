@@ -13,9 +13,9 @@
   },
   "dependencies": {
     "@ckeditor/ckeditor5-react": "^11.2.0",
-    "@screenvault/shared": "*",
-    "@screenvault/types": "*",
-    "@screenvault/ui": "*",
+    "@screenvault/shared": "file:../../packages/shared",
+    "@screenvault/types": "file:../../packages/types",
+    "@screenvault/ui": "file:../../packages/ui",
     "ckeditor5": "^48.5.2",
     "sharp": "^0.34.4",
     "zod": "^3.25.76"

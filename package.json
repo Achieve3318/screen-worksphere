@@ -21,7 +21,7 @@
     "format:check": "prettier --check .",
     "typecheck": "npm run build:packages && npm exec -w @screenvault/shared -- tsc -p tsconfig.json --noEmit && npm exec -w @screenvault/types -- tsc -p tsconfig.json --noEmit && npm exec -w @screenvault/ui -- tsc -p tsconfig.json --noEmit && npm exec -w @screenvault/api -- tsc -p tsconfig.json --noEmit && npm exec -w @screenvault/admin -- tsc -p tsconfig.json --noEmit && npm exec -w @screenvault/desktop -- tsc -p tsconfig.json --noEmit",
     "test": "vitest run",
-    "db:seed": "npm run build:packages && npm run db:seed -w @screenvault/api"
+    "db:seed": "npm run build -w @screenvault/shared && npm run build -w @screenvault/types && npm run db:seed -w @screenvault/api"
   },
   "devDependencies": {
     "@types/node": "^22.19.0",
