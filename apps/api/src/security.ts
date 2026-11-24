@@ -1,22 +1,22 @@
 import { createHash, randomBytes } from 'node:crypto'
-import { hash, verify } from '@node-rs/argon2'
+import argon2 from 'argon2'
 import { SignJWT, jwtVerify } from 'jose'
 import type { Env } from './env.js'
 import { unauthorized } from './errors.js'
 
 const ARGON_OPTIONS = {
+  type: argon2.argon2id,
   memoryCost: 19456,
   timeCost: 2,
   parallelism: 1,
-  algorithm: 2,
 } as const
 
 export function hashPassword(password: string): Promise<string> {
-  return hash(password, ARGON_OPTIONS)
+  return argon2.hash(password, ARGON_OPTIONS)
 }
 
 export function verifyPassword(passwordHash: string, password: string): Promise<boolean> {
-  return verify(passwordHash, password)
+  return argon2.verify(passwordHash, password)
 }
 
 export function newRefreshToken(): string {

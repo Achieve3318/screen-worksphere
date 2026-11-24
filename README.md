@@ -47,9 +47,17 @@ The default URI is `mongodb://127.0.0.1:27017/screenvault`. The API creates coll
 
 ## Setup
 
+Put the project in a path **without spaces** (for example `C:\screen-worksphere`). Native modules can fail under paths like `C:\screen-worksphere-main (1)\...`.
+
 ```bash
 npm install
 copy .env.example .env
+```
+
+If Electron prints `Electron uninstall`, download its binary once:
+
+```bash
+node node_modules/electron/install.js
 ```
 
 On macOS or Linux, use `cp .env.example .env`.
