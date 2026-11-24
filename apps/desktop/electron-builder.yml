@@ -1,0 +1,30 @@
+appId: com.screenvault.desktop
+productName: WorkSphere
+directories:
+  output: release
+files:
+  - '!**/.vscode/*'
+  - '!src/*'
+  - '!release/**'
+  - '!electron.vite.config.{js,ts,mjs,cjs}'
+  - '!electron-builder.yml'
+  - '!{.env,.env.*,.npmrc,pnpm-lock.yaml}'
+  - '!{tsconfig.json,tsconfig.*.json}'
+  - '!**/*.{map,md}'
+asarUnpack:
+  - '**/node_modules/sharp/**'
+  - '**/node_modules/@img/**'
+win:
+  executableName: WorkSphere
+  signAndEditExecutable: false
+  target:
+    - nsis
+  artifactName: ${productName}-Setup-${version}.${ext}
+nsis:
+  oneClick: false
+  perMachine: false
+  allowToChangeInstallationDirectory: true
+  shortcutName: WorkSphere
+  uninstallDisplayName: WorkSphere
+  createDesktopShortcut: true
+npmRebuild: false

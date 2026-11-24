@@ -1,0 +1,17 @@
+:root {
+  --sv-ink: #17211c;
+  --sv-paper: #f4f1ea;
+  --sv-paper-2: #fffdf8;
+  --sv-line: #e4dfd4;
+  --sv-teal: #0f766e;
+  --sv-teal-deep: #115e59;
+  --sv-mint: #3ddc97;
+  --sv-amber: #b45309;
+  --sv-danger: #b42318;
+  --sv-muted: #5f6b66;
+  --sv-sidebar: #12201b;
+  --sv-desktop: #10161c;
+  --sv-desktop-card: #182029;
+  --sv-desktop-line: #2c3944;
+  --sv-shadow: 0 16px 40px rgba(23, 33, 28, 0.08);
+}

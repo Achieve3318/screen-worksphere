@@ -1,0 +1,119 @@
+@import 'tailwindcss';
+
+:root {
+  color-scheme: dark;
+  font-family: 'Segoe UI Variable', 'Segoe UI', ui-sans-serif, system-ui, sans-serif;
+  --ink: #f4f7fb;
+  --muted: #8ea0b5;
+  --card: #151d2c;
+  --line: rgba(255, 255, 255, 0.06);
+  --green: #2fce7c;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #0c121c;
+  color: var(--ink);
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+input:focus {
+  outline: none;
+  border-color: #2fce7c;
+  box-shadow: 0 0 0 3px rgba(47, 206, 124, 0.16);
+}
+
+.report-editor {
+  --ck-color-base-foreground: #1b2433;
+  --ck-color-base-background: #151d2c;
+  --ck-color-base-border: rgba(255, 255, 255, 0.12);
+  --ck-color-base-text: #f4f7fb;
+  --ck-color-text: #f4f7fb;
+  --ck-color-toolbar-background: #151d2c;
+  --ck-color-toolbar-border: rgba(255, 255, 255, 0.12);
+  --ck-color-button-default-hover-background: rgba(255, 255, 255, 0.08);
+  --ck-color-button-default-active-background: rgba(255, 255, 255, 0.12);
+  --ck-color-button-on-background: rgba(47, 206, 124, 0.18);
+  --ck-color-button-on-hover-background: rgba(47, 206, 124, 0.28);
+  --ck-color-button-on-active-background: rgba(47, 206, 124, 0.28);
+  --ck-color-button-on-color: #8dffc6;
+  --ck-color-focus-border: #2fce7c;
+  --ck-color-focus-outer-shadow: rgba(47, 206, 124, 0.25);
+  --ck-color-engine-placeholder-text: #8ea0b5;
+  --ck-color-link-default: #7dffa8;
+  --ck-color-input-text: #f4f7fb;
+  --ck-color-input-background: #0c121c;
+  --ck-color-list-button-hover-background: rgba(255, 255, 255, 0.08);
+  --ck-border-radius: 12px;
+}
+
+.report-editor .ck.ck-editor {
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 12px;
+  background: #0c121c;
+}
+
+.report-editor .ck.ck-toolbar {
+  border: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: #0c121c;
+}
+
+.report-editor .ck.ck-editor__main > .ck-editor__editable {
+  min-height: 5.5rem;
+  border: 0;
+  background: #0c121c;
+  color: #f4f7fb;
+  box-shadow: none;
+}
+
+.report-editor .ck.ck-editor__editable.ck-focused {
+  border: 0;
+  box-shadow: none;
+}
+
+.report-editor:focus-within .ck.ck-editor {
+  border-color: #2fce7c;
+  box-shadow: 0 0 0 3px rgba(47, 206, 124, 0.16);
+}
+
+.report-editor .ck.ck-sticky-panel__content {
+  border: 0;
+}
+
+.report-editor .ck-content .image,
+.report-editor .ck-content img {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+.report-history {
+  overflow-wrap: anywhere;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #e8eef6;
+}
+
+.report-history img {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+.report-history a {
+  color: #3ddc97;
+}
+
+.report-history ul,
+.report-history ol {
+  margin: 0.25rem 0 0.25rem 1.25rem;
+}

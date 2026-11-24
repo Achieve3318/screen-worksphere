@@ -1,0 +1,43 @@
+{
+  "name": "screenvault",
+  "private": true,
+  "type": "module",
+  "version": "0.1.0",
+  "packageManager": "pnpm@9.15.4",
+  "pnpm": {
+    "supportedArchitectures": {
+      "os": ["current", "win32"],
+      "cpu": ["current", "x64"]
+    }
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build:packages": "pnpm --filter @screenvault/shared run build && pnpm --filter @screenvault/types run build && pnpm --filter @screenvault/ui run build",
+    "build": "pnpm run build:packages && pnpm --filter @screenvault/api run build && pnpm --filter @screenvault/admin run build && pnpm --filter @screenvault/desktop run build",
+    "dev": "pnpm run build:packages && concurrently -n api,admin,desktop -c cyan,green,magenta \"pnpm --filter @screenvault/api dev\" \"pnpm --filter @screenvault/admin dev\" \"pnpm --filter @screenvault/desktop dev\"",
+    "dev:api": "pnpm run build:packages && pnpm --filter @screenvault/api dev",
+    "dev:admin": "pnpm --filter @screenvault/admin dev",
+    "dev:desktop": "pnpm run build:packages && pnpm --filter @screenvault/desktop dev",
+    "lint": "eslint .",
+    "format:check": "prettier --check .",
+    "typecheck": "pnpm run build:packages && pnpm --filter @screenvault/shared exec tsc -p tsconfig.json --noEmit && pnpm --filter @screenvault/types exec tsc -p tsconfig.json --noEmit && pnpm --filter @screenvault/ui exec tsc -p tsconfig.json --noEmit && pnpm --filter @screenvault/api exec tsc -p tsconfig.json --noEmit && pnpm --filter @screenvault/admin exec tsc -p tsconfig.json --noEmit && pnpm --filter @screenvault/desktop exec tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "db:seed": "pnpm run build:packages && pnpm --filter @screenvault/api db:seed"
+  },
+  "devDependencies": {
+    "@types/node": "^22.19.0",
+    "@eslint/js": "^9.39.1",
+    "concurrently": "^9.2.1",
+    "eslint": "^9.39.1",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "globals": "^16.4.0",
+    "prettier": "^3.6.2",
+    "typescript": "~5.9.2",
+    "typescript-eslint": "^8.46.0",
+    "vitest": "^3.2.4"
+  }
+}

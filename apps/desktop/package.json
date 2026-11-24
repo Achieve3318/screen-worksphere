@@ -1,0 +1,42 @@
+{
+  "name": "@screenvault/desktop",
+  "version": "0.1.0",
+  "private": true,
+  "productName": "WorkSphere",
+  "main": "./out/main/index.js",
+  "scripts": {
+    "dev": "electron-vite dev",
+    "build": "electron-vite build",
+    "dist": "electron-vite build && electron-builder --win --x64",
+    "preview": "electron-vite preview",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@ckeditor/ckeditor5-react": "^11.2.0",
+    "@screenvault/shared": "workspace:*",
+    "@screenvault/types": "workspace:*",
+    "@screenvault/ui": "workspace:*",
+    "ckeditor5": "^48.5.2",
+    "sharp": "^0.34.4",
+    "zod": "^3.25.76"
+  },
+  "optionalDependencies": {
+    "@img/sharp-libvips-win32-x64": "1.2.4",
+    "@img/sharp-win32-x64": "0.34.5"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/node": "^22.18.8",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "@vitejs/plugin-react": "^5.0.4",
+    "electron": "^44.5.1",
+    "electron-builder": "^26.15.3",
+    "electron-vite": "^5.0.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "tailwindcss": "^4.3.3",
+    "typescript": "~5.9.2",
+    "vite": "^7.1.7"
+  }
+}
